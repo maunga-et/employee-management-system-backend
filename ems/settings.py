@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lm7bxfg34)8*ib9d3iyyz8cvi$dsc8x2upmxm)4iwdbv67$wm9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['maita-backend-fb5511f115f0.herokuapp.com', 'localhost', '127.0.0.1', '[::1]', 'maita.emmanuelmaunga.dev']
 
 # Application definition
 
@@ -80,9 +80,17 @@ WSGI_APPLICATION = 'ems.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "mysql.connector.django",
+        "NAME": 'dbmain',
+        "USER": 'nemo',
+        "PASSWORD": 'jF^Jh5F,Oh0bS?bk??wXikFV!9UE}Sx;',
+        "HOST": 'ls-60166ccc7489aba5ee9b8271650542b9042c00fa.c106442yom4o.us-east-1.rds.amazonaws.com',
+        "PORT": 3306,
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            "use_pure": True,
+        },
     }
 }
 
@@ -119,6 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -136,7 +148,16 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'https://maita.emmanuelmaunga.dev',
+    'https://maita-backend-fb5511f115f0.herokuapp.com'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://maita.emmanuelmaunga.dev',
+    'https://maita-backend-fb5511f115f0.herokuapp.com'
+]
 
 AUTH_USER_MODEL = 'employees.Employee'
 
