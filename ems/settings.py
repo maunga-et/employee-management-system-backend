@@ -151,12 +151,14 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://maita.emmanuelmaunga.dev',
-    'https://maita-backend-fb5511f115f0.herokuapp.com'
+    'https://maita-backend-fb5511f115f0.herokuapp.com',
+    'https://employee-management-system-frontend-jet.vercel.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://maita.emmanuelmaunga.dev',
-    'https://maita-backend-fb5511f115f0.herokuapp.com'
+    'https://maita-backend-fb5511f115f0.herokuapp.com',
+    'https://employee-management-system-frontend-jet.vercel.app'
 ]
 
 AUTH_USER_MODEL = 'employees.Employee'
